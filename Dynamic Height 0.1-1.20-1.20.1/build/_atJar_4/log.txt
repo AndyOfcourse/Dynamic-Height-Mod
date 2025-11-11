@@ -1,7 +1,0 @@
-Java Launcher: /opt/homebrew/Cellar/openjdk@17/17.0.16/libexec/openjdk.jdk/Contents/Home/bin/java
-Arguments: '--inJar, /Users/nikim/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.4/forge-1.20.1-47.4.4-injected.jar, --outJar, /Users/nikim/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.4_mapped_official_1.20.1/forge-1.20.1-47.4.4_mapped_official_1.20.1.jar, --logFile, accesstransform.log, --atFile, /Users/nikim/Downloads/mc-mod-template-forge-1.20.1-master 3/build/_atJar_4/parent_at.cfg'
-Classpath:
- - /Users/nikim/.gradle/caches/forge_gradle/maven_downloader/net/minecraftforge/accesstransformers/8.2.1/accesstransformers-8.2.1-fatjar.jar
-Working directory: /Users/nikim/Downloads/mc-mod-template-forge-1.20.1-master 3/build/_atJar_4
-Main class: net.minecraftforge.accesstransformer.TransformerProcessor
-====================================
