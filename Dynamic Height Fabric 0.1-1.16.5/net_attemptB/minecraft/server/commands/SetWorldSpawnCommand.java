@@ -1,0 +1,50 @@
+package net.minecraft.server.commands;
+
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.builder.RequiredArgumentBuilder;
+import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.commands.arguments.AngleArgument;
+import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.TranslatableComponent;
+
+public class SetWorldSpawnCommand {
+   public static void register(CommandDispatcher<CommandSourceStack> commandDispatcher) {
+      commandDispatcher.register(
+         (LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)Commands.literal("setworldspawn")
+                  .requires(commandSourceStack -> commandSourceStack.hasPermission(2)))
+               .executes(
+                  commandContext -> setSpawn(
+                        (CommandSourceStack)commandContext.getSource(), new BlockPos(((CommandSourceStack)commandContext.getSource()).getPosition()), 0.0F
+                     )
+               ))
+            .then(
+               ((RequiredArgumentBuilder)Commands.argument("pos", BlockPosArgument.blockPos())
+                     .executes(
+                        commandContext -> setSpawn(
+                              (CommandSourceStack)commandContext.getSource(), BlockPosArgument.getOrLoadBlockPos(commandContext, "pos"), 0.0F
+                           )
+                     ))
+                  .then(
+                     Commands.argument("angle", AngleArgument.angle())
+                        .executes(
+                           commandContext -> setSpawn(
+                                 (CommandSourceStack)commandContext.getSource(),
+                                 BlockPosArgument.getOrLoadBlockPos(commandContext, "pos"),
+                                 AngleArgument.getAngle(commandContext, "angle")
+                              )
+                        )
+                  )
+            )
+      );
+   }
+
+   private static int setSpawn(CommandSourceStack commandSourceStack, BlockPos blockPos, float f) {
+      commandSourceStack.getLevel().setDefaultSpawnPos(blockPos, f);
+      commandSourceStack.sendSuccess(new TranslatableComponent("commands.setworldspawn.success", blockPos.getX(), blockPos.getY(), blockPos.getZ(), f), true);
+      return 1;
+   }
+}

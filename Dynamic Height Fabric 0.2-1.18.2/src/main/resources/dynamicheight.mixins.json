@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "net.multiverse.dynamicheight.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ClientLevelMixin",
+    "ServerGamePacketListenerMixin",
+    "DimensionTypeAccessor"
+  ],
+  "client": [
+    "ScreenInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

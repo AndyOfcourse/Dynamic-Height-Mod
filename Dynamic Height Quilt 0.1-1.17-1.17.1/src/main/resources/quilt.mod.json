@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "${mod_group_id}",
+    "id": "${mod_id}",
+    "version": "${version}",
+    "metadata": {
+      "name": "${mod_name}",
+      "description": "${mod_description}",
+      "license": "${mod_license}",
+      "contact": {
+        "homepage": "${homepage}"
+      },
+      "contributors": {},
+      "authors": [
+        "${mod_authors}"
+      ]
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": [
+        "net.multiverse.dynamicheight.DynamicHeightMod"
+      ],
+      "client": [
+        "net.multiverse.dynamicheight.DynamicHeightClient"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=${quilt_loader_version}"
+      },
+      {
+        "id": "minecraft",
+        "versions": "1.17.x"
+      },
+      {
+        "id": "fabric",
+        "versions": "*"
+      }
+    ],
+    "mixin": [
+      "dynamicheight.mixins.json"
+    ]
+  }
+}

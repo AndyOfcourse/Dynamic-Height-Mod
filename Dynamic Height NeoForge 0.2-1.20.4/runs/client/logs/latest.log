@@ -1,0 +1,189 @@
+[27нояб.2025 17:44:53.759] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 20.4.251, --assetIndex, asset-index, --assetsDir, /Users/nikim/.gradle/caches/minecraft/assets, --gameDir, ., --fml.neoForgeVersion, 20.4.251, --fml.fmlVersion, 2.0.17, --fml.mcVersion, 1.20.4, --fml.neoFormVersion, 20240627.114801]
+[27нояб.2025 17:44:53.760] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 21.0.8 by Homebrew; OS Mac OS X arch aarch64 version 15.6.1
+[27нояб.2025 17:44:53.801] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[27нояб.2025 17:44:53.917] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[27нояб.2025 17:44:53.957] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.5
+[27нояб.2025 17:44:53.966] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.4
+[27нояб.2025 17:44:53.974] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.3
+[27нояб.2025 17:44:53.983] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.2
+[27нояб.2025 17:44:53.989] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.1
+[27нояб.2025 17:44:54.009] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.1 got version 4.1
+[27нояб.2025 17:44:54.106] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/nikim/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.13.4+mixin.0.8.5/8adf0cff1795a169141b9e16ad7b9f6e2527a990/sponge-mixin-0.13.4+mixin.0.8.5.jar%23124!/ Service=ModLauncher Env=CLIENT
+[27нояб.2025 17:44:54.251] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-20.4.251.jar" of type MOD with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@7674a051
+[27нояб.2025 17:44:54.252] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "" of type MOD with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@7674a051
+[27нояб.2025 17:44:54.347] [main/INFO] [net.neoforged.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
+[27нояб.2025 17:44:54.347] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "mixinextras-neoforge-0.4.1.jar" of type GAMELIBRARY with provider net.neoforged.fml.loading.moddiscovery.JarInJarDependencyLocator@cda4919
+[27нояб.2025 17:44:54.354] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: Apple M3 GL version 4.1 Metal - 89.4, Apple
+[27нояб.2025 17:44:54.803] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 20.4.251, --gameDir, ., --assetsDir, /Users/nikim/.gradle/caches/minecraft/assets, --assetIndex, asset-index]
+[27нояб.2025 17:44:55.292] [main/WARN] [oshi.util.platform.mac.SysctlUtil/]: Failed sysctl call: hw.cpufrequency, Error code: 2
+[27нояб.2025 17:44:57.148] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 198 Datafixer optimizations took 68 milliseconds
+[27нояб.2025 17:44:58.160] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[27нояб.2025 17:44:58.161] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[27нояб.2025 17:44:58.163] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[27нояб.2025 17:44:58.164] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[27нояб.2025 17:44:58.164] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[27нояб.2025 17:44:58.217] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/nikim/Downloads/Dynamic%20Height%20NeoForge%200.1-1.20.4/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/20.4.251/neoforge-20.4.251.jar%23177!/assets/.mcassetsroot' uses unexpected schema
+[27нояб.2025 17:44:58.218] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/Users/nikim/Downloads/Dynamic%20Height%20NeoForge%200.1-1.20.4/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/20.4.251/neoforge-20.4.251.jar%23177!/data/.mcassetsroot' uses unexpected schema
+[27нояб.2025 17:44:58.227] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[27нояб.2025 17:44:58.231] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[27нояб.2025 17:44:58.261] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.2+13
+[27нояб.2025 17:44:58.652] [Render thread/WARN] [oshi.util.platform.mac.SysctlUtil/]: Failed sysctl call: hw.cpufrequency, Error code: 2
+[27нояб.2025 17:44:58.702] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 20.4.251, for MC 1.20.4 with MCP 20240627.114801
+[27нояб.2025 17:44:59.046] [Render thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: []
+[27нояб.2025 17:44:59.166] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: mod_resources, mod:neoforge, vanilla
+[27нояб.2025 17:44:59.214] [Worker-Main-6/WARN] [net.minecraft.client.gui.font.FontManager/]: Unable to load font 'minecraft:include/unifont_pua' in fonts.json in resourcepack: 'vanilla'
+com.google.gson.JsonParseException: No key size_overrides in MapLike[{"type":"unihex","hex_file":"minecraft:font/unifont_pua.zip"}]
+	at net.minecraft.Util.getOrThrow(Util.java:836) ~[neoforge-20.4.251.jar%23177!/:?]
+	at net.minecraft.client.gui.font.FontManager.loadResourceStack(FontManager.java:196) ~[neoforge-20.4.251.jar%23177!/:?]
+	at net.minecraft.client.gui.font.FontManager.lambda$prepare$4(FontManager.java:88) ~[neoforge-20.4.251.jar%23177!/:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760) ~[?:?]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387) ~[?:?]
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808) ~[?:?]
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188) ~[?:?]
+[27нояб.2025 17:44:59.227] [Worker-Main-5/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-16.0.03.hex, loading
+[27нояб.2025 17:44:59.323] [Worker-Main-6/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_jp_patch-16.0.03.hex, loading
+[27нояб.2025 17:45:00.220] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.lodestone.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.copper_bulb.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.hanging_roots.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.suspicious_sand.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.wool.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.scaffolding.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.packed_mud.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.stone.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.gravel.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.vine.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.wet_sponge.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.cherry_wood.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.gilded_blackstone.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.moss.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.sculk_sensor.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.close', args=[]} for sound event: minecraft:block.copper_trapdoor.close
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.open', args=[]} for sound event: minecraft:block.bamboo_wood_trapdoor.open
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.sand.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.entity.wolf.bark', args=[]} for sound event: minecraft:entity.wolf.ambient
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.wart_block.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.bamboo.fall
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.entity.fish.swim', args=[]} for sound event: minecraft:entity.fish.swim
+[27нояб.2025 17:45:00.221] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.netherite_block.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.ancient_debris.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.nether_gold_ore.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.sculk.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.anvil.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.polished_tuff.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.shroomlight.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.deepslate_tiles.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.tuff.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.lantern.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.snow.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.moss_carpet.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.hanging_sign.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.calcite.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.open', args=[]} for sound event: minecraft:block.iron_trapdoor.open
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.sculk_shrieker.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.deepslate_bricks.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.froglight.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.item.elytra.flying', args=[]} for sound event: minecraft:item.elytra.flying
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.trial_spawner.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.bamboo_wood_hanging_sign.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.cherry_sapling.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.copper.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.muddy_mangrove_roots.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.powder_snow.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.polished_deepslate.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.amethyst_cluster.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.stem.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.rooted_dirt.fall
+[27нояб.2025 17:45:00.222] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.close', args=[]} for sound event: minecraft:block.iron_trapdoor.close
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.netherrack.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.flowering_azalea.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.candle.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.mangrove_roots.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.suspicious_gravel.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.pink_petals.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.nether_wood_hanging_sign.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.nether_sprouts.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.metal.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.candle.extinguish', args=[]} for sound event: minecraft:block.candle.extinguish
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.entity.wolf.pant', args=[]} for sound event: minecraft:entity.wolf.pant
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.wet_grass.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.wood.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.entity.wolf.whine', args=[]} for sound event: minecraft:entity.wolf.whine
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.small_dripleaf.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.open', args=[]} for sound event: minecraft:block.cherry_wood_trapdoor.open
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.nether_wood.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.sponge.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.close', args=[]} for sound event: minecraft:block.cherry_wood_trapdoor.close
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.cave_vines.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.nether_bricks.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.azalea_leaves.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.soul_sand.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.spore_blossom.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.chain.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.big_dripleaf.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.cherry_leaves.fall
+[27нояб.2025 17:45:00.223] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.sculk_vein.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.tuff_bricks.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.ambient.sound', args=[]} for sound event: minecraft:ambient.cave
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.glass.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.decorated_pot.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.amethyst_block.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.slime_block.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.close', args=[]} for sound event: minecraft:block.bamboo_wood_trapdoor.close
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.honey_block.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.bone_block.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.nylium.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.weeping_vines.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.close', args=[]} for sound event: minecraft:block.nether_wood_trapdoor.close
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.roots.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.basalt.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.cherry_wood_hanging_sign.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.dripstone_block.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.copper_grate.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.pointed_dripstone.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.azalea.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.grass.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.soul_soil.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.close', args=[]} for sound event: minecraft:block.wooden_trapdoor.close
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.deepslate.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.chiseled_bookshelf.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.entity.skeleton_horse.jump_water', args=[]} for sound event: minecraft:entity.skeleton_horse.jump_water
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.frogspawn.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.sculk_catalyst.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.mud_bricks.fall
+[27нояб.2025 17:45:00.224] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.ladder.fall
+[27нояб.2025 17:45:00.225] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.open', args=[]} for sound event: minecraft:block.nether_wood_trapdoor.open
+[27нояб.2025 17:45:00.225] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.bamboo_wood.fall
+[27нояб.2025 17:45:00.225] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.open', args=[]} for sound event: minecraft:block.copper_trapdoor.open
+[27нояб.2025 17:45:00.225] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.nether_ore.fall
+[27нояб.2025 17:45:00.225] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.coral_block.fall
+[27нояб.2025 17:45:00.225] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.generic.fall', args=[]} for sound event: minecraft:block.mud.fall
+[27нояб.2025 17:45:00.225] [Render thread/ERROR] [net.minecraft.client.sounds.SoundManager/]: Missing subtitle translation{key='subtitles.block.trapdoor.open', args=[]} for sound event: minecraft:block.wooden_trapdoor.open
+[27нояб.2025 17:45:00.225] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[27нояб.2025 17:45:00.225] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[27нояб.2025 17:45:00.225] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.leash_knot.break
+[27нояб.2025 17:45:00.225] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.leash_knot.place
+[27нояб.2025 17:45:00.225] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.puffer_fish.ambient
+[27нояб.2025 17:45:00.225] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.generic.wind_burst
+[27нояб.2025 17:45:00.225] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.wolf.howl
+[27нояб.2025 17:45:00.328] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device Динамики MacBook Air
+[27нояб.2025 17:45:00.330] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[27нояб.2025 17:45:00.397] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[27нояб.2025 17:45:00.405] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[27нояб.2025 17:45:00.405] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[27нояб.2025 17:45:00.406] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[27нояб.2025 17:45:00.406] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[27нояб.2025 17:45:00.409] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[27нояб.2025 17:45:00.409] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[27нояб.2025 17:45:00.409] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[27нояб.2025 17:45:00.410] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[27нояб.2025 17:45:00.513] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[27нояб.2025 17:45:00.567] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[27нояб.2025 17:45:00.568] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[27нояб.2025 17:45:00.568] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[27нояб.2025 17:45:00.568] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[27нояб.2025 17:46:06.528] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
+[27нояб.2025 17:46:06.592] [Render thread/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 1271 advancements
+[27нояб.2025 17:46:08.823] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!

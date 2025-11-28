@@ -1,0 +1,32 @@
+/tp 0 99999 0
+/setblock ~ ~ ~ dirt
+/tp 0 9999 0
+/setblock ~ ~ ~ dirt
+/tp 0 -2016 0
+/tp 0 2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 -2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 -2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 -2015 0
+/setblock ~ ~ ~ dirt
+/tp 0 20160
+/tp 0 2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 -2016 0
+/tp 0 2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 -2016 0
+/setblock ~ ~ ~ e
+/setblock ~ ~ ~ dirt
+/tp 0 2016 0
+/setblock ~ ~ ~ dirt
+/tp 0 -2016 0
+/setblock ~ ~ ~ dirt

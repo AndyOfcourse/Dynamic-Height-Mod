@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "license": "${mod_license}",
+  "contact": {
+    "homepage": "${homepage}"
+  },
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.multiverse.dynamicheight.DynamicHeightMod"
+    ],
+    "client": [
+      "net.multiverse.dynamicheight.DynamicHeightClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": ">=1.17 <=1.17.1"
+  },
+  "mixins": [
+    "dynamicheight.mixins.json"
+  ]
+}

@@ -1,0 +1,64 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.neoforged.gradle.userdev' version "${neo_gradle_version}"
+}
+
+group = project.mod_group_id
+version = project.mod_version
+
+base {
+    archivesName = project.mod_id
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.neoforged.net/releases' }
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
+processResources {
+    def props = [
+            mod_id         : project.mod_id,
+            mod_name       : project.mod_name,
+            mod_version    : project.mod_version,
+            mod_license    : project.mod_license,
+            mod_authors    : project.mod_authors,
+            mod_description: project.mod_description,
+            mod_homepage   : project.mod_homepage
+    ]
+    inputs.properties(props)
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand(props)
+    }
+}
+
+jar {
+    from('LICENSE') {
+        rename { 'LICENSE' }
+    }
+}
+
+publishing {
+    publications {
+        create('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+}

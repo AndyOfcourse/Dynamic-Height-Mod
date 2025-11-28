@@ -1,0 +1,132 @@
+---- Minecraft Crash Report ----
+// Oh - I know what I did wrong!
+
+Time: 2025-11-27 15:02:52
+Description: Initializing game
+
+java.lang.IllegalStateException: Cannot get config value before config is loaded.
+	at MC-BOOTSTRAP/com.google.common@33.3.1-jre/com.google.common.base.Preconditions.checkState(Preconditions.java:513) ~[guava-33.3.1-jre.jar%23123!/:?] {}
+	at TRANSFORMER/neoforge@21.7.25-beta/net.neoforged.neoforge.common.ModConfigSpec$ConfigValue.getRaw(ModConfigSpec.java:1235) ~[neoforge-21.7.25-beta.jar%23213!/:?] {re:classloading}
+	at TRANSFORMER/neoforge@21.7.25-beta/net.neoforged.neoforge.common.ModConfigSpec$ConfigValue.get(ModConfigSpec.java:1222) ~[neoforge-21.7.25-beta.jar%23213!/:?] {re:classloading}
+	at TRANSFORMER/neoforge@21.7.25-beta/net.neoforged.neoforge.common.ModConfigSpec$BooleanValue.getAsBoolean(ModConfigSpec.java:1291) ~[neoforge-21.7.25-beta.jar%23213!/:?] {re:classloading}
+	at TRANSFORMER/neoforge@21.7.25-beta/net.neoforged.neoforge.client.ClientHooks.createGpuDevice(ClientHooks.java:1139) ~[neoforge-21.7.25-beta.jar%23213!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.7/com.mojang.blaze3d.systems.RenderSystem.initRenderer(RenderSystem.java:228) ~[neoforge-21.7.25-beta.jar%23212!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.7/net.minecraft.client.Minecraft.<init>(Minecraft.java:497) ~[neoforge-21.7.25-beta.jar%23212!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.7/net.minecraft.client.main.Main.main(Main.java:228) ~[neoforge-21.7.25-beta.jar%23212!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:132) ~[loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:120) ~[loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/net.neoforged.fml.loading.targets.NeoForgeClientDevLaunchHandler.runService(NeoForgeClientDevLaunchHandler.java:49) ~[loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:114) ~[loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:25) [loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:55) [loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:73) [loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.Launcher.run(Launcher.java:104) [loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.Launcher.main(Launcher.java:75) [loader-9.0.14.jar%23164!/:9.0] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at cpw.mods.bootstraplauncher/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:203) [bootstraplauncher-9.0.14.jar:?] {}
+	at cpw.mods.bootstraplauncher/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:62) [bootstraplauncher-9.0.14.jar:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at MC-BOOTSTRAP/com.google.common@33.3.1-jre/com.google.common.base.Preconditions.checkState(Preconditions.java:513) ~[guava-33.3.1-jre.jar%23123!/:?] {}
+	at TRANSFORMER/neoforge@21.7.25-beta/net.neoforged.neoforge.common.ModConfigSpec$ConfigValue.getRaw(ModConfigSpec.java:1235) ~[neoforge-21.7.25-beta.jar%23213!/:?] {re:classloading}
+	at TRANSFORMER/neoforge@21.7.25-beta/net.neoforged.neoforge.common.ModConfigSpec$ConfigValue.get(ModConfigSpec.java:1222) ~[neoforge-21.7.25-beta.jar%23213!/:?] {re:classloading}
+	at TRANSFORMER/neoforge@21.7.25-beta/net.neoforged.neoforge.common.ModConfigSpec$BooleanValue.getAsBoolean(ModConfigSpec.java:1291) ~[neoforge-21.7.25-beta.jar%23213!/:?] {re:classloading}
+	at TRANSFORMER/neoforge@21.7.25-beta/net.neoforged.neoforge.client.ClientHooks.createGpuDevice(ClientHooks.java:1139) ~[neoforge-21.7.25-beta.jar%23213!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.7/com.mojang.blaze3d.systems.RenderSystem.initRenderer(RenderSystem.java:228) ~[neoforge-21.7.25-beta.jar%23212!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.7/net.minecraft.client.Minecraft.<init>(Minecraft.java:497) ~[neoforge-21.7.25-beta.jar%23212!/:?] {re:classloading}
+-- Initialization --
+Details:
+	Modules: 
+Stacktrace:
+	at TRANSFORMER/minecraft@1.21.7/net.minecraft.client.main.Main.main(Main.java:228) ~[neoforge-21.7.25-beta.jar%23212!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:132) ~[loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:120) ~[loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/net.neoforged.fml.loading.targets.NeoForgeClientDevLaunchHandler.runService(NeoForgeClientDevLaunchHandler.java:49) ~[loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:114) ~[loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:25) [loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:55) [loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:73) [loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.Launcher.run(Launcher.java:104) [loader-9.0.14.jar%23164!/:9.0] {}
+	at MC-BOOTSTRAP/fml_loader@9.0.14/cpw.mods.modlauncher.Launcher.main(Launcher.java:75) [loader-9.0.14.jar%23164!/:9.0] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at cpw.mods.bootstraplauncher/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:203) [bootstraplauncher-9.0.14.jar:?] {}
+	at cpw.mods.bootstraplauncher/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:62) [bootstraplauncher-9.0.14.jar:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.7
+	Minecraft Version ID: 1.21.7
+	Operating System: Mac OS X (aarch64) version 15.6.1
+	Java Version: 21.0.8, Homebrew
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Homebrew
+	Memory: 319923320 bytes (305 MiB) / 522190848 bytes (498 MiB) up to 4294967296 bytes (4096 MiB)
+	CPUs: 8
+	Processor Vendor: Apple Inc.
+	Processor Name: Apple M3
+	Identifier: Apple Inc. Family 0x8765edea Model 0 Stepping 0
+	Microarchitecture: ARM64 SoC: Everest + Sawtooth
+	Frequency (GHz): 4.06
+	Number of physical packages: 1
+	Number of physical CPUs: 8
+	Number of logical CPUs: 8
+	Graphics card #0 name: Apple M3
+	Graphics card #0 vendor: Apple (0x106b)
+	Graphics card #0 VRAM (MiB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Memory slot #0 capacity (MiB): 0.00
+	Memory slot #0 clockSpeed (GHz): 0.00
+	Memory slot #0 type: unknown
+	Virtual memory max (MiB): 32768.00
+	Virtual memory used (MiB): 28725.55
+	Swap memory total (MiB): 16384.00
+	Swap memory used (MiB): 15194.88
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 12247.04, total: 471482.09
+	Space in storage for workdir (MiB): available: 12247.04, total: 471482.09
+	JVM Flags: 0 total; 
+	Launched Version: 21.7.25-beta
+	Backend library: LWJGL version 3.3.3+5
+	Backend API: Unknown
+	Window size: <not initialized>
+	GFLW Platform: cocoa
+	Render Extensions: ERR
+	GL debug messages: <no renderer available>
+	Is Modded: Definitely; Client brand changed to 'neoforge'
+	Universe: 404
+	Type: Client (map_client.txt)
+	Locale: ru_UA
+	System encoding: UTF-8
+	File encoding: UTF-8
+	CPU: 8x Apple M3
+	ModLauncher: 9.0
+	ModLauncher launch target: neoforgeclientdev
+	ModLauncher services: 
+		sponge-mixin-0.15.2+mixin.0.8.7.jar mixin PLUGINSERVICE 
+		loader-9.0.14.jar neoforgedevdistcleaner PLUGINSERVICE 
+		loader-9.0.14.jar slf4jfixer PLUGINSERVICE 
+		loader-9.0.14.jar runtime_enum_extender PLUGINSERVICE 
+		loader-9.0.14.jar accesstransformer PLUGINSERVICE 
+		loader-9.0.14.jar mixin TRANSFORMATIONSERVICE 
+		loader-9.0.14.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		javafml@9.0
+		minecraft@9.0
+	Mod List: 
+		neoforge-21.7.25-beta.jar                         |Minecraft                     |minecraft                     |1.21.7              |Manifest: NOSIGNATURE
+		neoforge-21.7.25-beta.jar                         |NeoForge                      |neoforge                      |21.7.25-beta        |Manifest: NOSIGNATURE

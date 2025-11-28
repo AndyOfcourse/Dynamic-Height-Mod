@@ -1,0 +1,87 @@
+
+plugins {
+    id 'org.quiltmc.loom' version '1.7.4'
+    id 'maven-publish'
+}
+
+group = project.mod_group_id
+version = project.mod_version
+
+base {
+    archivesName = 'dynamic-height-quilt'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabricmc.net/' }
+    maven { url 'https://maven.quiltmc.org/repository/release' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "org.quiltmc:quilt-loader:${quilt_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    withSourcesJar()
+}
+
+tasks.withType(JavaExec).configureEach {
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'loader_version', project.loader_version
+    inputs.property 'quilt_loader_version', project.quilt_loader_version
+    filesMatching(['fabric.mod.json']) {
+        expand 'version': project.version,
+               'mod_id': project.mod_id,
+               'mod_name': project.mod_name,
+               'mod_description': project.mod_description,
+               'mod_license': project.mod_license,
+               'mod_authors': project.mod_authors,
+               'homepage': project.mod_homepage,
+               'loader_version': project.loader_version
+    }
+    filesMatching(['quilt.mod.json']) {
+        expand 'version': project.version,
+                'mod_id': project.mod_id,
+                'mod_name': project.mod_name,
+                'mod_description': project.mod_description,
+                'mod_license': project.mod_license,
+                'mod_authors': project.mod_authors,
+                'mod_group_id': project.mod_group_id,
+                'homepage': project.mod_homepage,
+                'quilt_loader_version': project.quilt_loader_version,
+                'yarn_mappings': project.yarn_mappings
+    }
+}
+
+jar {
+    from('LICENSE') {
+        rename { 'LICENSE' }
+    }
+}
+
+publishing {
+    publications {
+        create('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+}

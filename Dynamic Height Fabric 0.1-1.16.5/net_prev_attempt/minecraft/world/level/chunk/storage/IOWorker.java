@@ -1,0 +1,167 @@
+package net.minecraft.world.level.chunk.storage;
+
+import com.google.common.collect.Maps;
+import com.mojang.datafixers.util.Either;
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import net.minecraft.Util;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Unit;
+import net.minecraft.util.thread.ProcessorHandle;
+import net.minecraft.util.thread.ProcessorMailbox;
+import net.minecraft.util.thread.StrictQueue;
+import net.minecraft.world.level.ChunkPos;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.Nullable;
+
+public class IOWorker implements AutoCloseable {
+   private static final Logger LOGGER = LogManager.getLogger();
+   private final AtomicBoolean shutdownRequested = new AtomicBoolean();
+   private final ProcessorMailbox<StrictQueue.IntRunnable> mailbox;
+   private final RegionFileStorage storage;
+   private final Map<ChunkPos, IOWorker.PendingStore> pendingWrites = Maps.newLinkedHashMap();
+
+   protected IOWorker(File file, boolean bl, String string) {
+      this.storage = new RegionFileStorage(file, bl);
+      this.mailbox = new ProcessorMailbox<>(new StrictQueue.FixedPriorityQueue(IOWorker.Priority.values().length), Util.ioPool(), "IOWorker-" + string);
+   }
+
+   public CompletableFuture<Void> store(ChunkPos chunkPos, CompoundTag compoundTag) {
+      return this.submitTask(() -> {
+         IOWorker.PendingStore pendingStore = this.pendingWrites.computeIfAbsent(chunkPos, chunkPosxx -> new IOWorker.PendingStore(compoundTag));
+         pendingStore.data = compoundTag;
+         return Either.left(pendingStore.result);
+      }).thenCompose(Function.identity());
+   }
+
+   @Nullable
+   public CompoundTag load(ChunkPos chunkPos) throws IOException {
+      CompletableFuture<CompoundTag> completableFuture = this.submitTask(() -> {
+         IOWorker.PendingStore pendingStore = this.pendingWrites.get(chunkPos);
+         if (pendingStore != null) {
+            return Either.left(pendingStore.data);
+         } else {
+            try {
+               CompoundTag compoundTag = this.storage.read(chunkPos);
+               return Either.left(compoundTag);
+            } catch (Exception var4xx) {
+               LOGGER.warn("Failed to read chunk {}", chunkPos, var4xx);
+               return Either.right(var4xx);
+            }
+         }
+      });
+
+      try {
+         return completableFuture.join();
+      } catch (CompletionException var4) {
+         if (var4.getCause() instanceof IOException) {
+            throw (IOException)var4.getCause();
+         } else {
+            throw var4;
+         }
+      }
+   }
+
+   public CompletableFuture<Void> synchronize() {
+      CompletableFuture<Void> completableFuture = this.submitTask(
+            () -> Either.left(
+                  CompletableFuture.allOf(this.pendingWrites.values().stream().map(pendingStore -> pendingStore.result).toArray(i -> new CompletableFuture[i]))
+               )
+         )
+         .thenCompose(Function.identity());
+      return completableFuture.thenCompose(void_ -> this.submitTask(() -> {
+            try {
+               this.storage.flush();
+               return Either.left(null);
+            } catch (Exception var2) {
+               LOGGER.warn("Failed to synchronized chunks", var2);
+               return Either.right(var2);
+            }
+         }));
+   }
+
+   private <T> CompletableFuture<T> submitTask(Supplier<Either<T, Exception>> supplier) {
+      return this.mailbox.askEither(processorHandle -> new StrictQueue.IntRunnable(IOWorker.Priority.HIGH.ordinal(), () -> {
+            if (!this.shutdownRequested.get()) {
+               processorHandle.tell(supplier.get());
+            }
+
+            this.tellStorePending();
+         }));
+   }
+
+   private void storePendingChunk() {
+      Iterator<Entry<ChunkPos, IOWorker.PendingStore>> iterator = this.pendingWrites.entrySet().iterator();
+      if (iterator.hasNext()) {
+         Entry<ChunkPos, IOWorker.PendingStore> entry = iterator.next();
+         iterator.remove();
+         this.runStore(entry.getKey(), entry.getValue());
+         this.tellStorePending();
+      }
+   }
+
+   private void tellStorePending() {
+      this.mailbox.tell(new StrictQueue.IntRunnable(IOWorker.Priority.LOW.ordinal(), this::storePendingChunk));
+   }
+
+   private void runStore(ChunkPos chunkPos, IOWorker.PendingStore pendingStore) {
+      try {
+         this.storage.write(chunkPos, pendingStore.data);
+         pendingStore.result.complete(null);
+      } catch (Exception var4) {
+         LOGGER.error("Failed to store chunk {}", chunkPos, var4);
+         pendingStore.result.completeExceptionally(var4);
+      }
+   }
+
+   @Override
+   public void close() throws IOException {
+      if (this.shutdownRequested.compareAndSet(false, true)) {
+         CompletableFuture<Unit> completableFuture = this.mailbox
+            .ask(processorHandle -> new StrictQueue.IntRunnable(IOWorker.Priority.HIGH.ordinal(), () -> processorHandle.tell(Unit.INSTANCE)));
+
+         try {
+            completableFuture.join();
+         } catch (CompletionException var4) {
+            if (var4.getCause() instanceof IOException) {
+               throw (IOException)var4.getCause();
+            }
+
+            throw var4;
+         }
+
+         this.mailbox.close();
+         this.pendingWrites.forEach(this::runStore);
+         this.pendingWrites.clear();
+
+         try {
+            this.storage.close();
+         } catch (Exception var3) {
+            LOGGER.error("Failed to close storage", var3);
+         }
+      }
+   }
+
+   static class PendingStore {
+      private CompoundTag data;
+      private final CompletableFuture<Void> result = new CompletableFuture<>();
+
+      public PendingStore(CompoundTag compoundTag) {
+         this.data = compoundTag;
+      }
+   }
+
+   static enum Priority {
+      HIGH,
+      LOW;
+   }
+}
