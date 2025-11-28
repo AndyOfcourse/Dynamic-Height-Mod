@@ -3,7 +3,7 @@
   "quilt_loader": {
     "group": "net.multiverse.dynamicheight",
     "id": "dynamicheight",
-    "version": "0.2.0+quilt-1.21",
+    "version": "${version}",
     "metadata": {
       "name": "Dynamic Height",
       "description": "Change the world height limits - both up and down - without affecting generation or performance!",
