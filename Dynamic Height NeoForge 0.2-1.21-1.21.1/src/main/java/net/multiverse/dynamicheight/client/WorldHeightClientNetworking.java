@@ -16,7 +16,7 @@ public final class WorldHeightClientNetworking {
 
     public static void sendCurrentSelection() {
         Minecraft client = Minecraft.getInstance();
-        if (client.getConnection() == null) {
+        if (client.getConnection() == null || !WorldHeightData.hasPendingClientSelection()) {
             return;
         }
         WorldHeightData.Snapshot snapshot = WorldHeightData.currentSnapshot();

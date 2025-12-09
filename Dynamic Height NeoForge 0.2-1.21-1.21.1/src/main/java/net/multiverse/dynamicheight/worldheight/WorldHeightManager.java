@@ -30,11 +30,15 @@ public final class WorldHeightManager {
         if (!(event.getLevel() instanceof ServerLevel level)) {
             return;
         }
+        initializeLevel(level);
+    }
+
+    public static void initializeLevel(ServerLevel level) {
         WorldHeightSavedData data = getData(level);
         if (level.dimension().equals(Level.OVERWORLD) && WorldHeightData.hasPendingClientSelection()) {
             data.update(WorldHeightData.consumeSnapshot());
         }
-        applyDimensionSettings(level, data);
+        applyDimensionSettings(level, data, true);
     }
 
     public static void onLevelUnload(LevelEvent.Unload event) {
@@ -90,9 +94,13 @@ public final class WorldHeightManager {
     }
 
     private static void applyDimensionSettings(ServerLevel level, WorldHeightSavedData data) {
+        applyDimensionSettings(level, data, false);
+    }
+
+    private static void applyDimensionSettings(ServerLevel level, WorldHeightSavedData data, boolean force) {
         var holder = level.dimensionTypeRegistration();
         DimensionType current = holder.value();
-        if (current.minY() != data.minY() || current.height() != data.height()) {
+        if (force || current.minY() != data.minY() || current.height() != data.height()) {
             DimensionType updated = DimensionTypeUtil.copyWithHeight(current, data.minY(), data.maxY());
             DimensionTypeUtil.bindUpdatedDimensionType(level.registryAccess(), holder, updated);
         }

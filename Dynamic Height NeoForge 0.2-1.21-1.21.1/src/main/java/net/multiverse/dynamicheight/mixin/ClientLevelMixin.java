@@ -1,22 +1,27 @@
 package net.multiverse.dynamicheight.mixin;
 
+import java.util.Optional;
+import java.util.function.Supplier;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.multiverse.dynamicheight.client.ClientDimensionHeights;
 import net.multiverse.dynamicheight.util.DimensionTypeUtil;
 import net.multiverse.dynamicheight.worldheight.WorldHeightData;
 import net.multiverse.dynamicheight.worldheight.WorldHeightData.Snapshot;
+import net.multiverse.dynamicheight.worldheight.WorldHeightManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.Optional;
-import java.util.function.Supplier;
 
 @Mixin(ClientLevel.class)
 public abstract class ClientLevelMixin {
@@ -36,16 +41,28 @@ public abstract class ClientLevelMixin {
         ClientLevel level = (ClientLevel) (Object) this;
         ResourceLocation dimensionId = level.dimension().location();
         Snapshot override = Optional.ofNullable(ClientDimensionHeights.lookup(dimensionId))
-                .orElseGet(() -> {
-                    if (Minecraft.getInstance().hasSingleplayerServer()) {
-                        return WorldHeightData.currentSnapshot();
-                    }
-                    return null;
-                });
+                .orElseGet(() -> resolveIntegratedServerSnapshot(resourceKey));
         if (override == null) {
             return;
         }
         applyDimensionOverride(level, holder, override);
+    }
+
+    private static Snapshot resolveIntegratedServerSnapshot(ResourceKey<Level> dimension) {
+        Minecraft minecraft = Minecraft.getInstance();
+        if (!minecraft.hasSingleplayerServer()) {
+            return null;
+        }
+        MinecraftServer server = minecraft.getSingleplayerServer();
+        if (server == null) {
+            return WorldHeightData.currentSnapshot();
+        }
+        ServerLevel serverLevel = server.getLevel(dimension);
+        if (serverLevel == null) {
+            return WorldHeightData.currentSnapshot();
+        }
+        var data = WorldHeightManager.currentData(serverLevel);
+        return new Snapshot(data.minY(), data.maxY());
     }
 
     private static void applyDimensionOverride(ClientLevel level, Holder<DimensionType> holder, Snapshot override) {

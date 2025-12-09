@@ -16,7 +16,7 @@ final class DynamicHeightModClientHooks {
     }
 
     private static void onClientSetup(FMLClientSetupEvent event) {
-        WorldHeightSettings.resetToDefaults();
+        WorldHeightSettings.resetToDefaults(false);
         // Game event bus listeners (client side only)
         NeoForge.EVENT_BUS.addListener(WorldHeightClientNetworking::onClientLoggedIn);
         NeoForge.EVENT_BUS.addListener(WorldHeightScreenHooks::onScreenInit);

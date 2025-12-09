@@ -1,0 +1,66 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.world.level.dimension.DimensionType
+ */
+package net.multiverse.dynamicheight.worldheight;
+
+import net.minecraft.world.level.dimension.DimensionType;
+
+public final class HeightValidator {
+    public static final int SECTION_SIZE = 16;
+    public static final int MAX_MIN_Y = -64;
+    public static final int MIN_MAX_Y = 135;
+
+    private HeightValidator() {
+    }
+
+    public static HeightRange sanitize(int minCandidate, int maxCandidate) {
+        int min = HeightValidator.sanitizeMin(minCandidate);
+        int max = HeightValidator.sanitizeMax(min, maxCandidate);
+        return new HeightRange(min, max);
+    }
+
+    public static int sanitizeMin(int value) {
+        int maxMin = Math.min(DimensionType.MAX_Y - SECTION_SIZE, MAX_MIN_Y);
+        int clamped = Math.max(DimensionType.MIN_Y, Math.min(value, maxMin));
+        return HeightValidator.snapDownToSection(clamped);
+    }
+
+    public static int sanitizeMax(int min, int value) {
+        int minAllowed = Math.max(min + SECTION_SIZE, MIN_MAX_Y);
+        int maxAllowed = DimensionType.MAX_Y;
+        int target = Math.max(minAllowed, Math.min(value, maxAllowed));
+        int minHeight = HeightValidator.snapUpToSection(Math.max(SECTION_SIZE, minAllowed - min));
+        int maxHeight = HeightValidator.snapDownToSection(maxAllowed - min);
+        if (maxHeight < SECTION_SIZE) {
+            maxHeight = SECTION_SIZE;
+        }
+        if (minHeight > maxHeight) {
+            return min + maxHeight;
+        }
+        int desiredHeight = HeightValidator.snapUpToSection(Math.max(SECTION_SIZE, target - min));
+        if (desiredHeight < minHeight) {
+            desiredHeight = minHeight;
+        }
+        if (desiredHeight > maxHeight) {
+            desiredHeight = maxHeight;
+        }
+        return min + desiredHeight;
+    }
+
+    private static int snapDownToSection(int value) {
+        return Math.floorDiv(value, SECTION_SIZE) * SECTION_SIZE;
+    }
+
+    public static int snapUpToSection(int value) {
+        return Math.floorDiv(value + SECTION_SIZE - 1, SECTION_SIZE) * SECTION_SIZE;
+    }
+
+    public record HeightRange(int minY, int maxY) {
+        public int height() {
+            return this.maxY - this.minY;
+        }
+    }
+}

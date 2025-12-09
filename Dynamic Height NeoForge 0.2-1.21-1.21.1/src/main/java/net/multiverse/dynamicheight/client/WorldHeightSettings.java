@@ -51,10 +51,16 @@ public final class WorldHeightSettings {
     }
 
     public static void resetToDefaults() {
+        resetToDefaults(true);
+    }
+
+    public static void resetToDefaults(boolean syncSharedState) {
         HeightRange range = HeightValidator.sanitize(DEFAULT_MIN_Y, DEFAULT_MAX_Y);
         minY = range.minY();
         maxY = range.maxY();
-        syncSharedState();
+        if (syncSharedState) {
+            syncSharedState();
+        }
     }
 
     private static void syncSharedState() {
